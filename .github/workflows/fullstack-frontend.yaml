@@ -15,5 +15,5 @@ jobs:
       - name: "Create Docker Image"
         run: |
           cd fullstack/fullstack_frontend
-          docker build -t fullstack_frontend:latest .
+          docker build -t fullstack_frontend:$(git rev-parse --short HEAD)_$(date -u +'%Y%m%d_%H%M%S') .
           docker image ls
