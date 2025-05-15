@@ -1,0 +1,16 @@
+name: Fullstack Frontend Docker Image Creation
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+    paths:
+    - fullstack/fullstack_frontend
+jobs:
+  CreateDockerImage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v4
+      - name: "Create Docker Image"
+        run: docker build -t fullstack_frontend:latest fullstack/fullstack_frontend
