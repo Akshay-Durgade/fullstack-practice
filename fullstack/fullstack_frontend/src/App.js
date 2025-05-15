@@ -3,7 +3,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './layout/Navbar';
 import Home from './pages/Home';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import AddUsers from './users/AddUsers';
+import AddUsers from './users/BAddUsers';
 import EditUsers from './users/EditUsers';
 import ViewUser from './users/ViewUser';
 
