@@ -1,0 +1,19 @@
+name: Fullstack Backend Docker Image Creation
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+    paths:
+    - fullstack/fullstack_backend/**
+jobs:
+  CreateDockerImage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v4
+      - name: "Create Docker Image"
+        run: |
+          cd fullstack/fullstack_backend
+          docker build -t fullstack_frontend:$(git rev-parse --short HEAD)_$(TZ="Asia/Kolkata" date +'%Y%m%d_%H%M%S') .
+          docker image ls
