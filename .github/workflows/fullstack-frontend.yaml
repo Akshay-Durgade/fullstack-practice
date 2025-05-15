@@ -13,4 +13,7 @@ jobs:
       - name: "Checkout Repository"
         uses: actions/checkout@v4
       - name: "Create Docker Image"
-        run: docker build -t fullstack_frontend:latest fullstack/fullstack_frontend
+        run: |
+          cd fullstack/fullstack_frontend
+          docker build -t fullstack_frontend:latest .
+          docker image ls
