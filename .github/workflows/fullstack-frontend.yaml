@@ -5,7 +5,7 @@ on:
     branches:
     - main
     paths:
-    - fullstack/fullstack_frontend
+    - fullstack/fullstack_frontend/**
 jobs:
   CreateDockerImage:
     runs-on: ubuntu-latest
