@@ -19,3 +19,5 @@ jobs:
           docker image ls
       - name: "Login to AWS"
         uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: "us-east-1"
