@@ -17,3 +17,5 @@ jobs:
           cd fullstack/fullstack_frontend
           docker build -t fullstack_frontend:$(git rev-parse --short HEAD)_$(TZ="Asia/Kolkata" date +'%Y%m%d_%H%M%S') .
           docker image ls
+      - name: "Login to AWS"
+        uses: aws-actions/configure-aws-credentials@v4
