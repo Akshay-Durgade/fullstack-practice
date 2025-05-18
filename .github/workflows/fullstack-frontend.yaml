@@ -31,7 +31,7 @@ jobs:
             ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
             ECR_REPOSITORY: ${{ env.ECR_REPO_NAME }}
         run: |
-          IMAGE_TAG: fullstack_frontend_$(git rev-parse --short HEAD)_$(TZ="Asia/Kolkata" date +'%Y%m%d_%H%M%S')
+          IMAGE_TAG= fullstack_frontend_$(git rev-parse --short HEAD)_$(TZ="Asia/Kolkata" date +'%Y%m%d_%H%M%S')
           cd fullstack/fullstack_frontend
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
           docker image ls
