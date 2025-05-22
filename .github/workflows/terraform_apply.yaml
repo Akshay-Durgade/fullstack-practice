@@ -25,6 +25,11 @@ jobs:
           role-to-assume: ${{ secrets.AWS_GITHUB_ACTION_ROLE }}
           aws-region: "us-east-1"
 
+      - name: Terraform Install
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.5.7"
+
       - name: Terraform Version
         run: terraform --version
 
