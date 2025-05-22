@@ -1,5 +1,6 @@
 module "ecr_repo" {
-  source                                                        = "github.com/Akshay-Durgade/iac-projects/modules/ecr"
+  source = "git::https://github.com/Akshay-Durgade/iac-projects.git//modules/ecr?ref=main"
+
   aws_ecr_repository_name                                       = var.aws_ecr_repository_name
   aws_ecr_repository_force_delete                               = var.aws_ecr_repository_force_delete
   aws_ecr_repository_image_scanning_configuration_scan_on_push  = var.aws_ecr_repository_image_scanning_configuration_scan_on_push

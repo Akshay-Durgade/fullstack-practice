@@ -17,7 +17,10 @@ data "aws_iam_policy_document" "trusted_policy" {
     condition {
       test = "StringLike"
       variable = "token.actions.githubusercontent.com:sub"
-      values = ["repo:Akshay-Durgade/fullstack-practice:*"]
+      values = [
+        "repo:Akshay-Durgade/fullstack-practice:*",
+        "repo:Akshay-Durgade/portfolio:*"
+        ]
     }
   }
 }
