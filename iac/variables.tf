@@ -42,3 +42,7 @@ variable "aws_ecr_repository_image_scanning_configuration_scan_on_push" {
 variable "iam_role_name" {
   type = string
 }
+
+variable "iam_role_managed_role_policy_arn" {
+  type = list(string)
+}
