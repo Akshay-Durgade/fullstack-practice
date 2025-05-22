@@ -7,7 +7,7 @@ on:
     paths:
     - iac/**
 jobs:
-  CreateDockerImage:
+  Terraform_Apply:
     runs-on: ubuntu-latest
     defaults:
       run:
