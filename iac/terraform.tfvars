@@ -9,11 +9,3 @@ aws_ecr_repository_encryption_configuration                   = {
   encryption_type = "AES256"
   kms_key         = ""
 }
-
-###################
-## IAM ROLE
-###################
-iam_role_name                    = "FullStackPractiseRole"
-oidc_url                         = "https://token.actions.githubusercontent.com"
-
-existing_policies = ["FullStackPractisePolicy", "AmazonEC2ContainerRegistryPowerUser"]
