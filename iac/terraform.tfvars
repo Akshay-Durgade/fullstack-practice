@@ -13,8 +13,7 @@ aws_ecr_repository_encryption_configuration                   = {
 ###################
 ## IAM ROLE
 ###################
-iam_role_name                    = "GitHubOIDC"
-iam_role_managed_role_policy_arn = [ 
-  "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess",
-  "arn:aws:iam::aws:policy/AmazonS3FullAccess"
-  ]
+iam_role_name                    = "FullStackPractiseRole"
+oidc_url                         = "https://token.actions.githubusercontent.com"
+
+existing_policies = ["FullStackPractisePolicy", "AmazonEC2ContainerRegistryPowerUser"]

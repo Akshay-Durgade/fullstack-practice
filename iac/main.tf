@@ -8,14 +8,20 @@ module "ecr_repo" {
   aws_ecr_repository_encryption_configuration                   = var.aws_ecr_repository_encryption_configuration
 }
 
-module "oidc" {
-  source = "github.com/Akshay-Durgade/iac-projects/modules/oidc"
-}
+# data "aws_iam_openid_connect_provider" "github" {
+#   url = var.oidc_url
+# }
 
-module "oidc_trust_relationship" {
-  source                            = "github.com/Akshay-Durgade/iac-projects/modules/iam_role"
-  iam_role_name                     = var.iam_role_name
-  iam_role_assume_role_policy       = data.aws_iam_policy_document.trusted_policy.json
-  iam_role_managed_role_policy_arn  = var.iam_role_managed_role_policy_arn
-  depends_on                        = [ module.oidc ]
-}
+# data "aws_iam_policy" "existing" {
+#   for_each = toset(var.existing_policies)
+
+#   name = each.value
+# }
+
+# module "oidc_trust_relationship" {
+#   source                            = "github.com/Akshay-Durgade/iac-projects/modules/iam_role"
+#   iam_role_name                     = var.iam_role_name
+#   iam_role_assume_role_policy       = data.aws_iam_policy_document.trusted_policy.json
+#   iam_role_managed_role_policy_arn  = [ for p in data.aws_iam_policy.existing : p.arn ]
+#   depends_on                        = [ data.aws_iam_openid_connect_provider.github, data.aws_iam_policy.existing ]
+# }

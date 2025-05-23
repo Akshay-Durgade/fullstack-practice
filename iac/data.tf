@@ -1,29 +1,28 @@
-data "aws_iam_policy_document" "trusted_policy" {
-  statement {
-    effect = "Allow"
-    actions = [ "sts:AssumeRoleWithWebIdentity" ]
+# data "aws_iam_policy_document" "trusted_policy" {
+#   statement {
+#     effect = "Allow"
+#     actions = [ "sts:AssumeRoleWithWebIdentity" ]
 
-    principals {
-      type = "Federated"
-      identifiers = [ module.oidc.oidc_arn]
-    }
+#     principals {
+#       type = "Federated"
+#       identifiers = [ data.aws_iam_openid_connect_provider.github.arn ]
+#     }
 
-    condition {
-      test = "StringEquals"
-      variable = "token.actions.githubusercontent.com:aud"
-      values = ["sts.amazonaws.com"]
-    }
+#     condition {
+#       test = "StringEquals"
+#       variable = "token.actions.githubusercontent.com:aud"
+#       values = ["sts.amazonaws.com"]
+#     }
 
-    condition {
-      test = "StringLike"
-      variable = "token.actions.githubusercontent.com:sub"
-      values = [
-        "repo:Akshay-Durgade/fullstack-practice:*",
-        "repo:Akshay-Durgade/portfolio:*"
-        ]
-    }
-  }
-}
+#     condition {
+#       test = "StringLike"
+#       variable = "token.actions.githubusercontent.com:sub"
+#       values = [
+#         "repo:Akshay-Durgade/fullstack-practice:*",
+#         ]
+#     }
+#   }
+# }
 
 data "aws_iam_policy_document" "s3_bucket" {
   statement {

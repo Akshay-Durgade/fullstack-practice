@@ -43,6 +43,14 @@ variable "iam_role_name" {
   type = string
 }
 
-variable "iam_role_managed_role_policy_arn" {
+# variable "iam_role_managed_role_policy_arn" {
+#   type = list(string)
+# }
+
+variable "oidc_url" {
+  type = string
+}
+
+variable "existing_policies" {
   type = list(string)
 }
